@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Table App</title>
+</head>
+<body>
+    <h1>Enter numbers</h1>
+    <form method="POST">
+        <input type="number" name="num1" step="any" required>
+        <select name="operation">
+            <option value="add">+</option>
+            <option value="subtract">-</option>
+            <option value="multiply">*</option>
+            <option value="divide">/</option>
+        </select>
+        <input type="number" name="num2" step="any" required>
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if result is not none %}
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+
+    <h3>Calculation Table</h3>
+    <table border="1">
+        <tr>
+            <th>Num 1</th>
+            <th>Operation</th>
+            <th>Num 2</th>
+            <th>Result</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.num1 }}</td>
+            <td>{{ row.operation }}</td>
+            <td>{{ row.num2 }}</td>
+            <td>{{ row.result }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
